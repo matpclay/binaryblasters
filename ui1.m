@@ -22,7 +22,7 @@ function varargout = ui1(varargin)
 
 % Edit the above text to modify the response to help ui1
 
-% Last Modified by GUIDE v2.5 13-Apr-2017 09:37:00
+% Last Modified by GUIDE v2.5 19-Apr-2017 22:29:26
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -135,6 +135,8 @@ set(handles.testentry, 'FontSize', fsize);
 set(handles.testquestion, 'FontSize', fsize);
 set(handles.testInstructions, 'FontSize', fsize);
 set(handles.checkbutton, 'FontSize', fsize);
+set(handles.accuracy, 'FontSize', fsize);
+set(handles.resettest, 'FontSize', fsize);
 
 % --- Executes on button press in fontsizedown.
 function fontsizedown_Callback(hObject, eventdata, handles)
@@ -160,6 +162,8 @@ set(handles.testentry, 'FontSize', fsize);
 set(handles.testquestion, 'FontSize', fsize);
 set(handles.testInstructions, 'FontSize', fsize);
 set(handles.checkbutton, 'FontSize', fsize);
+set(handles.accuracy, 'FontSize', fsize);
+set(handles.resettest, 'FontSize', fsize);
 
 % --- Executes on button press in soundoption.
 function soundoption_Callback(hObject, eventdata, handles)
@@ -194,6 +198,26 @@ function selecttest_Callback(hObject, eventdata, handles)
 set(handles.mainmenu, 'visible', 'off');
 set(handles.optionsmenu, 'visible', 'off'); % protective code
 set(handles.testPanel, 'visible', 'on');
+num = floor(8*rand());
+switch(num)
+    case 0
+        set(handles.testquestion, 'String', '000');
+    case 1
+        set(handles.testquestion, 'String', '001');
+    case 2
+        set(handles.testquestion, 'String', '010');
+    case 3
+        set(handles.testquestion, 'String', '011');
+    case 4
+        set(handles.testquestion, 'String', '100');
+    case 5
+        set(handles.testquestion, 'String', '101');
+    case 6
+        set(handles.testquestion, 'String', '110');
+    case 7
+        set(handles.testquestion, 'String', '111');
+end
+set(handles.testentry, 'String', '');
 
 
 % --- Executes on button press in returner2.
@@ -234,3 +258,63 @@ function checkbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to checkbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+in = str2double(get(handles.testentry, 'String'));
+switch(in)
+    case 0
+        if (strcmp(get(handles.testquestion, 'String'), '000'))
+            set(handles.accuracy, 'String', 'Correct!');
+        else
+            set(handles.accuracy, 'String', 'Try Again');
+        end
+    case 1
+        if (strcmp(get(handles.testquestion, 'String'), '001'))
+            set(handles.accuracy, 'String', 'Correct!');
+        else
+            set(handles.accuracy, 'String', 'Try Again');
+        end
+    case 2
+        if (strcmp(get(handles.testquestion, 'String'), '010'))
+            set(handles.accuracy, 'String', 'Correct!');
+        else
+            set(handles.accuracy, 'String', 'Try Again');
+        end
+    case 3
+        if (strcmp(get(handles.testquestion, 'String'), '011'))
+            set(handles.accuracy, 'String', 'Correct!');
+        else
+            set(handles.accuracy, 'String', 'Try Again');
+        end
+    case 4
+        if (strcmp(get(handles.testquestion, 'String'), '100'))
+            set(handles.accuracy, 'String', 'Correct!');
+        else
+            set(handles.accuracy, 'String', 'Try Again');
+        end
+    case 5
+        if (strcmp(get(handles.testquestion, 'String'), '101'))
+            set(handles.accuracy, 'String', 'Correct!');
+        else
+            set(handles.accuracy, 'String', 'Try Again');
+        end
+    case 6
+        if (strcmp(get(handles.testquestion, 'String'), '110'))
+            set(handles.accuracy, 'String', 'Correct!');
+        else
+            set(handles.accuracy, 'String', 'Try Again');
+        end
+    case 7
+        if (strcmp(get(handles.testquestion, 'String'), '111'))
+            set(handles.accuracy, 'String', 'Correct!');
+        else
+            set(handles.accuracy, 'String', 'Try Again');
+        end
+end
+    
+
+
+% --- Executes on button press in resettest.
+function resettest_Callback(hObject, eventdata, handles)
+% hObject    handle to resettest (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+selecttest_Callback(hObject, eventdata, handles);
