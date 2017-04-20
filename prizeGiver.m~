@@ -1,0 +1,9 @@
+function [] = prizeGiver()
+% rewards player once get a certain point level
+
+global pointCount
+global hasDangerZone
+
+if pointCount>30
+    h
+end

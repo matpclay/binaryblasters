@@ -91,6 +91,7 @@ if (soundState)
     [y, Fs] = audioread('8d82b5_Galaga_Level_Start_Sound_Effect.mp3');
     sound(y, Fs);
 end
+test;
 
 % --- Executes on button press in options.
 function options_Callback(hObject, eventdata, handles)
